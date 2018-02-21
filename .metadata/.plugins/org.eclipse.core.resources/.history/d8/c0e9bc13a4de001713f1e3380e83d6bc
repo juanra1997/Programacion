@@ -1,0 +1,20 @@
+package Ejercicio02;
+
+public class Prueba {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		Cafetera cafetera = new Cafetera();
+		
+		System.out.println(cafetera.getCantidadActual());
+		System.out.println(cafetera.getCapacidadMaxima());
+		
+		cafetera.agregarCafe(450);
+		cafetera.servirTaza(5);
+		
+		cafetera.agregarCafe(450);
+		cafetera.vaciarCafetera();
+
+	}
+
+}

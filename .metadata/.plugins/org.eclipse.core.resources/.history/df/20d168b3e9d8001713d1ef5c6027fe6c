@@ -1,0 +1,35 @@
+package Ajedrez;
+
+public class Rey {
+	private Color color;
+	private Posicion posicion;
+	
+	public Rey() {
+		Posicion posicionDefecto=new Posicion('e', 1);
+		this.color=Color.BLANCO;
+		this.posicion=posicionDefecto;
+	}
+	
+	public Rey(Color color) {
+		this.color=color;
+	}
+	
+	public Color getColor() {
+		return this.color;
+	}
+	
+	public Posicion getPosicion() {
+		return this.posicion;
+	}
+	
+	public void mover(Posicion posicion) {
+		this.posicion=posicion;
+	}
+	
+	public String toString() {
+		String mss;
+		mss="Rey "+color+" esta situado en "+posicion;
+		return mss;
+	}
+
+}

@@ -1,0 +1,69 @@
+package Ejercicio01;
+
+public class Punto {
+	private int coordenadaX;
+	private int coordenadaY;
+	/**
+	 * Constructor por defecto que generea el punto (0,0)
+	 */
+	public Punto() { //Por defecto
+		this.coordenadaX=0;
+		this.coordenadaY=0;
+	}
+	/**
+	 * Constructor de clase
+	 * @param coordenadaX2 entero
+	 * @param coordenadaY2 entero
+	 */
+	public Punto(int coordenadaX2, int coordenadaY2) { //Clase
+		this.coordenadaX=coordenadaX2;
+		this.coordenadaY=coordenadaY2;
+	}
+	/**
+	 * Constructor de copia
+	 * @param p objeto de la clase punto
+	 */
+	public Punto(Punto p) { //Copia
+		this.coordenadaX=p.coordenadaX;
+		this.coordenadaY=p.coordenadaY;
+	}
+	
+	public double getcoordenadaX() { //get
+		return coordenadaX;
+	}
+	
+	public double getcoordenadaY() { //get
+		return coordenadaY;
+	}
+	
+	public void setcoordenadaX(int coordenadaX) { //set
+		this.coordenadaX=coordenadaX;
+	}
+	
+	public void setcoordenadaY(int coordenadaY) { //set
+		this.coordenadaY=coordenadaY;
+	}
+	
+	public String toString() { //toString
+		String mss=coordenadaX+","+coordenadaY;
+		return mss;
+	}
+	
+	public double distancia(Punto p) { //raiz cuadrada de (x-x1)^2+(y-y1)^2
+		double result;
+		result=Math.pow((Math.pow(this.coordenadaX-p.coordenadaX, 2)+Math.pow(this.coordenadaY-p.coordenadaY, 2)), 0.5);
+		return result;
+	}
+	/**
+	 * Calcula el punto medio de dos puntos
+	 * @param p objeto de la clase punto
+	 * @return objeto de la clase punto
+	 */
+	public Punto puntomedio(Punto p){//x=(x+x1)/2 // y=(y+y1)/2
+		int coordenadaX, coordenadaY;
+		coordenadaX=(this.coordenadaX+p.coordenadaX)/2;
+		coordenadaY=(this.coordenadaY+p.coordenadaY)/2;
+		Punto punto=new Punto(coordenadaX, coordenadaY);
+		return punto;	 
+	 }
+}

@@ -1,0 +1,15 @@
+package EJEMPLOS;
+
+public class Test {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		int cont=0;
+		int n=3;
+		while(cont<n);{
+			System.out.println("Ah ");
+			cont++;
+		}
+	}
+
+}

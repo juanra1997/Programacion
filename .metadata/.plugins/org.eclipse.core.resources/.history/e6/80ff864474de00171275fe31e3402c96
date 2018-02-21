@@ -1,0 +1,11 @@
+package Ejercicio04;
+
+public class prueba {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		Fecha prueba=new Fecha(7, 1, 1900);
+		System.out.println(prueba.diaSemana());
+	}
+
+}

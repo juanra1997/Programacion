@@ -1,0 +1,56 @@
+package Ejercicio04;
+
+public class prueba {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		Fecha fecha = new Fecha();
+		Fecha fecha2 = new Fecha(15, 1, 2002);
+		
+	
+		
+		fecha.diaAnterior();
+		
+		fecha.bisiesto();
+		
+		fecha.corta();
+		
+		fecha.diasMes(3);
+		
+		fecha.diaSemana();
+		
+		fecha.diasEntre(fecha2);
+		
+		fecha.diasTranscurridos();
+		
+		fecha.fechaTras(45);
+		
+		fecha.getAnno();
+		
+		fecha.getDia();
+		
+		fecha.getMes();
+		
+		fecha.igualQue(fecha2);
+		
+		fecha.larga();
+		
+		fecha.mayorQue(fecha2);
+		
+		fecha.menorQue(fecha2);
+		
+		fecha.setAnno(1999);
+		
+		fecha.setDia(3);
+		
+		fecha.setMes(5);
+		
+		fecha.diaSiguiente();
+		
+		fecha.toString();
+		
+		fecha.leer();
+		
+	}
+
+}

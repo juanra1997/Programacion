@@ -1,0 +1,12 @@
+package Ejercicio03;
+
+public class PruebaNIF {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		NIF mio=new NIF(233343733);
+		System.out.println(mio);
+
+	}
+
+}

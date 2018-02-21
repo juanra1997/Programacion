@@ -1,0 +1,30 @@
+package EJEMPLOS;
+import java.util.Scanner;
+public class Ejemplo13_valornota {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		Scanner teclado=new Scanner(System.in);
+		int nota;
+		System.out.println("Introduce una nota");
+		nota=teclado.nextInt();
+		if(nota<0)System.out.println("Introduce una nota valida");
+		else {
+		switch(nota) {
+		case 0: System.out.println("Suspenso");
+			break;
+		case 1: System.out.println("Suspenso");
+			break;
+		case 2: System.out.println("Suspenso");
+			break;
+		case 3: System.out.println("Suspenso");
+			break;
+			case 4: System.out.println("Suspenso");
+			break;
+		default: System.out.println("Aprobado");
+		}
+		}
+		teclado.close();
+	}
+
+}

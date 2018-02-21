@@ -1,0 +1,71 @@
+package Ejercicio3;
+import java.util.ArrayList;
+import java.util.Scanner;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
+public class Main {
+
+	public static void main(String[] args) {
+			ArrayList<ArrayList<String>> alumnos=new ArrayList<ArrayList<String>>();
+			Scanner sc=new Scanner(System.in);
+			int /*cont=0,*/ num=1;
+			while(num<3&&num>0) {
+				sc=new Scanner(System.in);
+			System.out.println("1. Introducir alumnos\n2. Mostrar alumnos");
+			num=sc.nextInt();
+			switch(num) {
+			case 1:
+				sc=new Scanner(System.in);
+				alumnos.add(new ArrayList<String>());
+				String nombre, apellidos, NIF, curso="ask", correo;
+				boolean comprobado=false;
+				System.out.println("Introduce el nombre");
+				nombre=sc.nextLine();
+				alumnos.get(0).add(nombre);
+				System.out.println("Introduce los apellidos");
+				apellidos=sc.nextLine();
+				alumnos.get(0).add(apellidos);
+				System.out.println("Introduce el NIF");
+				NIF=sc.nextLine();
+				Pattern dnic=Pattern.compile("[0-9]{8}[A-HJ-NP-TV-Za-hj-np-tv-z]");
+				Matcher dnim=dnic.matcher(NIF);
+				if(!dnim.matches()) {
+					while(!dnim.matches()) {
+						System.out.println("Introduce un NIF valido");
+						NIF=sc.next();
+						dnim=dnic.matcher(NIF);
+					}
+				}
+				alumnos.get(0).add(NIF);
+				while(comprobado==false) {
+					System.out.println("Introduce el curso (ingles, matematicas, dibujo tecnico, quimica)");
+					curso=sc.nextLine();
+					if(curso.equals("ingles")||curso.equals("matematicas")||curso.equals("dibujo tecnico")||curso.equals("quimica")) {
+						comprobado=true;
+					}
+				}
+				alumnos.get(0).add(curso);
+				System.out.println("Introduce el correo");
+				correo=sc.next();
+				Pattern emailc=Pattern.compile("[^@]+@[^@]+\\.[a-zA-Z]{2,}");
+				Matcher emailm=emailc.matcher(correo);
+				if(!emailm.matches()) {
+					while(!emailm.matches()) {
+						System.out.println("Introduce un correo valido");
+						correo=sc.next();
+						emailm=emailc.matcher(correo);
+					}
+				}
+				alumnos.get(0).add(correo);
+				//cont++;
+				break;
+			case 2:
+				for(int i=0; i<alumnos.size();i++) {
+					System.out.println("Alumno "+(i+1)+"\nNombre: "+alumnos.get(i).get(0)+"\nApellidos:"+alumnos.get(i).get(1)+"\nNIF: "+alumnos.get(i).get(2)+"\nCurso: "+alumnos.get(i).get(3)+"\nCorreo electronico: "+alumnos.get(i).get(4));
+				}
+				//sc.close();
+			}	
+		}
+	}
+
+}

@@ -1,0 +1,41 @@
+package EJEMPLOS;
+import java.util.Scanner;
+public class Ejemplo15_mes {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		Scanner teclado=new Scanner(System.in);
+		int nota;
+		System.out.println("Introduce el numero de un mes");
+		nota=teclado.nextInt();
+		switch(nota) {
+		case 11: System.out.println("Noviembre: 30 dias");
+			break;
+		case 1: System.out.println("Enero: 31 dias");
+			break;
+		case 2: System.out.println("Febrero: 28 dias, 29 dias si es bisiesto");
+			break;
+		case 3: System.out.println("Marzo: 31 dias");
+			break;
+		case 4: System.out.println("Abril: 30 dias");
+			break;
+		case 5: System.out.println("Mayo: 31 dias");
+			break;
+		case 6: System.out.println("Junio: 30 dias");
+			break;
+		case 7: System.out.println("Julio: 31 dias");
+			break;
+		case 8: System.out.println("Agosto: 31 dias");
+			break;
+		case 9: System.out.println("Septiembre: 30 dias");
+			break;
+		case 10: System.out.println("Octubre: 31 dias");
+			break;
+		case 12: System.out.println("Diciembre: 31 dias");
+			break;
+		default: System.out.println("Introduce un mes valido");
+		}
+		teclado.close();
+	}
+
+}
