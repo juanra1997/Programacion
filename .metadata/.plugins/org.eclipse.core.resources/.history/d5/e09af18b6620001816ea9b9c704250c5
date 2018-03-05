@@ -1,0 +1,11 @@
+package Herencias;
+
+public class Vehiculo {
+
+	private String matricula;
+	private boolean alquilado;
+	
+	public Vehiculo(String matricula, boolean alquilado) {
+		
+	}
+}
