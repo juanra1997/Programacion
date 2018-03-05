@@ -1,9 +1,0 @@
-package Pruebas;
-
-public class ArrayReales {
-
-	public static void main(String[] args) {
-		
-	}
-
-}
