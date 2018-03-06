@@ -1,0 +1,16 @@
+package Herencias;
+
+public class Turismo extends Vehiculo {//Utilitarios y/o familiares
+	
+	private double precioKm;
+	private int kmInicio;
+	private int kmFin;
+	private int numTurismos;
+	private int numAlquilados;
+
+	public Turismo(String matricula, boolean alquilado) {
+		super(matricula, alquilado);
+	}
+
+	
+}

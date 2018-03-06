@@ -2,9 +2,7 @@ package Herencias;
 
 public class Vehiculo {
 
-	@SuppressWarnings("unused")
 	private String matricula;
-	@SuppressWarnings("unused")
 	private boolean alquilado;
 	
 	public Vehiculo(String matricula, boolean alquilado) {
@@ -12,15 +10,31 @@ public class Vehiculo {
 		this.alquilado=alquilado;
 	}
 	
-	public void alquilar() {
+	public void setMatricula(String matricula) {
+		this.matricula=matricula;
+	}
+	
+	public String getMatricula() {
+		return this.matricula;
+	}
+	
+	public void setAlquilado(boolean alquilado) {
+		this.alquilado=alquilado;
+	}
+	
+	public boolean getAlquilado() {
+		return this.alquilado;
+	}
+	
+	public static void alquilar() {
 		
 	}
 	
-	public void devolver() {
+	public static void devolver() {
 		
 	}
 	
-	public void showInfo() {
+	public static void showInfo() {
 		
 	}
 }
