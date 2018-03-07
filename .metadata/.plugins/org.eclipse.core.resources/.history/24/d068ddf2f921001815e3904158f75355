@@ -1,13 +1,13 @@
 package Herencias;
 
-public abstract class Vehiculo {
+public class Vehiculo {
 
 	private String matricula;
 	private boolean alquilado;
 	
-	public Vehiculo(String matricula) {
+	public Vehiculo(String matricula, boolean alquilado) {
 		this.matricula=matricula;
-		//this.alquilado=alquilado;
+		this.alquilado=alquilado;
 	}
 	
 	public void setMatricula(String matricula) {
@@ -26,9 +26,15 @@ public abstract class Vehiculo {
 		return this.alquilado;
 	}
 	
-	public abstract void alquilar();
+	public static void alquilar() {
+		
+	}
 	
-	public abstract void devolver();
+	public static void devolver() {
+		
+	}
 	
-	public abstract void showInfo();
+	public static void showInfo() {
+		
+	}
 }

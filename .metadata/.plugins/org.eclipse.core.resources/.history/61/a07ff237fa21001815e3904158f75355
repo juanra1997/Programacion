@@ -7,7 +7,7 @@ public class Camion extends Vehiculo {
 	private static int numCAlquilados=0;
 	
 	public Camion(String matricula, boolean alquilado, double precioPorDia, Fecha fechaAlquiler, Fecha fechaDevolucion) {
-		super(matricula);
+		super(matricula, alquilado);
 		this.precioPorDia=precioPorDia;
 	}
 	
@@ -51,7 +51,7 @@ public class Camion extends Vehiculo {
 		this.setFechaDevolucion(fechaDevolucion);
 	}
 	
-	public void alquilar() {
+	/*public void alquilar() {
 		
 	}
 	
@@ -61,6 +61,6 @@ public class Camion extends Vehiculo {
 	
 	public void showInfo() {
 		
-	}
-		
+	}*/
+
 }

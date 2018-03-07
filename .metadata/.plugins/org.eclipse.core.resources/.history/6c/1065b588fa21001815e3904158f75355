@@ -5,11 +5,11 @@ public class Turismo extends Vehiculo {//Utilitarios y/o familiares
 	private double precioKm;
 	private int kmInicio;
 	private int kmFin;
-	private static int numTurismos=0;
-	private static int numAlquilados=0;
+	private int numTurismos=0;
+	private int numAlquilados=0;
 
-	public Turismo(String matricula, double precioKm, int kmInicio, int kmFin) {
-		super(matricula);
+	public Turismo(String matricula, double precioKm, int kmInicio, int kmFin, boolean alquilado) {
+		super(matricula, alquilado);
 		this.precioKm=precioKm;
 		this.kmInicio=kmInicio;
 		this.kmFin=kmFin;
@@ -39,32 +39,26 @@ public class Turismo extends Vehiculo {//Utilitarios y/o familiares
 		this.kmFin=kmFin;
 	}
 
-	public static int getNumTurismos() {
-		return numTurismos;
+	public int getNumTurismos() {
+		return this.numTurismos;
 	}
 
-	public static void setNumTurismos(int numTurismos0) {
-		numTurismos=numTurismos0;
+	public void setNumTurismos(int numTurismos) {
+		this.numTurismos=numTurismos;
 	}
 
-	public static int getNumAlquilados() {
-		return numAlquilados;
+	public int getNumAlquilados() {
+		return this.numAlquilados;
 	}
 
-	public static void setNumAlquilados(int numAlquilados0) {
-		numAlquilados=numAlquilados0;
+	public void setNumAlquilados(int numAlquilados) {
+		this.numAlquilados=numAlquilados;
 	}
 
-	public void alquilar() {
-		
-	}
+	public void alquilar();
 	
-	public void devolver() {
-		
-	}
+	public void devolver();
 	
-	public void showInfo() {
-		
-	}
+	public void showInfo();
 	
 }

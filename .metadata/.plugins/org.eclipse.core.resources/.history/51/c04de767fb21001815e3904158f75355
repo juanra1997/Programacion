@@ -5,9 +5,9 @@ public abstract class Vehiculo {
 	private String matricula;
 	private boolean alquilado;
 	
-	public Vehiculo(String matricula) {
+	public Vehiculo(String matricula, boolean alquilado) {
 		this.matricula=matricula;
-		//this.alquilado=alquilado;
+		this.alquilado=alquilado;
 	}
 	
 	public void setMatricula(String matricula) {
