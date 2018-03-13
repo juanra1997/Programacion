@@ -1,5 +1,5 @@
 package Herencias;
-import java.util.Calendar;
+
 public class Fecha {
 	
 	private int dia;
@@ -50,16 +50,6 @@ public class Fecha {
 		} else {
 			return this.dia+"/"+this.mes+"/"+this.anno;
 			}
-	}
-	
-	public static double tiempo(Fecha alquilado, Fecha devuelto) {
-		Calendar alquiler=Calendar.getInstance();
-		alquiler.set(alquilado.getAnno(), alquilado.getMes(), alquilado.getDia());
-		Calendar devolver=Calendar.getInstance();
-		devolver.set(devuelto.getAnno(), devuelto.getMes(), devuelto.getDia());
-		long millis=alquiler.getTimeInMillis()-devolver.getTimeInMillis();
-		double horas=millis/(3.6*1000000);
-		return horas;
 	}
 
 }
