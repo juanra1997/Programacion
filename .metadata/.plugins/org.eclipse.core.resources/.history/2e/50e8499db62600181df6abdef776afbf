@@ -86,30 +86,5 @@ public class Electrodomestico {
 		}
 	}
 	
-	public double precioFinal() {
-		double precio=this.precioBase;
-		if(this.consumoEnergetico=='A') {
-			precio=+100;
-		} else if(this.consumoEnergetico=='B') {
-			precio=+80;
-		} else if(this.consumoEnergetico=='C') {
-			precio=+60;
-		} else if(this.consumoEnergetico=='D') {
-			precio=+50;
-		} else if(this.consumoEnergetico=='E') {
-			precio+=30;
-		} else if(this.consumoEnergetico=='F') {
-			precio=+10;
-		}
-		if(this.peso<20) {
-			precio=+10;
-		} else if(this.peso>=20&&this.peso<50) {
-			precio=+50;
-		} else if(this.peso>=50&&this.peso<80) {
-			precio=+80;
-		} else if(this.peso>=80) {
-			precio=+100;
-		}
-		return precio;
-	}
+	
 }
