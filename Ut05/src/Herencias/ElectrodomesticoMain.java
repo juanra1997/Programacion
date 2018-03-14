@@ -4,6 +4,7 @@ public class ElectrodomesticoMain {
 
 	public static void main(String[] args) {
 
+		double preciosum=0;
 		Electrodomestico[] Electrodomesticos=new Electrodomestico[10];
 		Television TV1=new Television();
 		Television TV2=new Television(100, 5);
@@ -27,7 +28,10 @@ public class ElectrodomesticoMain {
 		Electrodomesticos[9]=L10;
 		for(int i=0; i<10; i++) {
 			System.out.println("Electrodomestico "+(i+1)+": "+Electrodomesticos[i].precioFinal());
+			preciosum=preciosum+Electrodomesticos[i].precioFinal();
 		}
+		System.out.println("El precio total de los 10 electrodomesticos es: "+preciosum);
+		
 	}
 
 }

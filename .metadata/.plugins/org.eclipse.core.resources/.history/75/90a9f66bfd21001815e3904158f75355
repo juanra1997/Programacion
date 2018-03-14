@@ -1,6 +1,0 @@
-package Herencias;
-
-public class Familiar extends Turismo {
-	
-	private final static String TIPO="Familiar";
-}
