@@ -1,9 +1,8 @@
 package Ejercicio01;
 
-public class Prueba {
+public class Prueba0 {
 
 	public static void main(String[] args) {
-		// TODO Auto-generated method stub
 		Rectangulo rectangulo=new Rectangulo();
 		System.out.println(rectangulo);
 		rectangulo.toString();
