@@ -35,11 +35,15 @@ public class ListaMultimedia {
 	public String toString() {
 		//int contt=0;
 		String mss="Lista:\nPosicion 0:\n";
-		for(int i=0; i<this.array.length; i++) {
-			mss=mss+this.array[i].toString();
-			if(i+1!=array.length) {
-				mss=mss+"\n************************************************************************\nPosicion "+(i+1)+":\n";
-			}
+		try {
+			for(int i=0; i<this.array.length; i++) {
+				mss=mss+this.array[i].toString();
+				if(i+1!=array.length) {
+					mss=mss+"\n************************************************************************\nPosicion "+(i+1)+":\n";
+					}
+				}
+			} catch(NullPointerException e) {
+				System.out.println("Fin");
 		}
 		return mss;
 	}
