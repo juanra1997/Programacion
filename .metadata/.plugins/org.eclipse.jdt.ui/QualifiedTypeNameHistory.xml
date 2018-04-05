@@ -14,4 +14,6 @@
 <fullyQualifiedTypeName name="java.io.IOError"/>
 <fullyQualifiedTypeName name="java.lang.Error"/>
 <fullyQualifiedTypeName name="java.lang.AssertionError"/>
+<fullyQualifiedTypeName name="java.io.FileInputStream"/>
+<fullyQualifiedTypeName name="java.io.OutputStream"/>
 </qualifiedTypeNameHistroy>
