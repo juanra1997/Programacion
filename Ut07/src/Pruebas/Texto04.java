@@ -8,7 +8,7 @@ public class Texto04 {
 	BufferedReader br=new BufferedReader(new InputStreamReader(System.in));
 	//Scanner sc=new Scanner(System.in);
 	char comprueba='a';
-	String fichero, ruta/*="C:\\Users\\Juanra\\Documents\\Programación\\Ficheros\\"*/;
+	String fichero, ruta/*="C:\\Users\\Juanra\\Documents\\Programación\\Ficheros\\"*//*, escritura*/;
 	boolean existe=true;
 	try {//Toma los datos del archivo
 		System.out.println("Introduce la ruta");
@@ -16,8 +16,8 @@ public class Texto04 {
 		ruta=ruta+"\\";
 		System.out.println("Introduzca el nombre del fichero sin su extension");
 		fichero=br.readLine();
-		fichero=fichero+".txt";
-		File f=new File(ruta+fichero);
+		//fichero=fichero+".txt";
+		File f=new File(ruta+fichero+".txt");
 		//System.out.println(f.exists());
 		//System.out.println(comprueba);
 		/*while(comprueba!='S'&&comprueba!='N') {
@@ -39,17 +39,54 @@ public class Texto04 {
 				comprueba=br.readLine().toUpperCase().charAt(0);
 			}
 			if(comprueba=='S') {//Crea el archivo
-				DataOutputStream dos=new DataOutputStream(new FileOutputStream(f));
-				dos.writeUTF("Fichero creado");
-				dos.close();
+				f.createNewFile();
 				existe=true;
+				comprueba='a';
+				while(comprueba!='S'&&comprueba!='N') {
+					System.out.println("¿Quieres escribir algo en el fichero? (S/N)");
+					comprueba=br.readLine().toUpperCase().charAt(0);
+				}
+				if(comprueba=='S') {
+					FileWriter fw=new FileWriter(f);
+					System.out.println("Escribe");
+					fw.write(br.readLine());
+					fw.close();
+				}
+				
 			}
 		}
-		BufferedReader bf=new BufferedReader(new FileReader(fichero));
+		BufferedReader bf=new BufferedReader(new FileReader(f));
 		if(existe==true) {
-			while((bf.readLine())!=null) {
+			System.out.println("En el archivo pone:");
+			//System.out.println(br.read());
+			int valor=bf.read();
+            while(valor!=-1){
+                System.out.print((char)valor);
+                valor=bf.read();
+            }
+			/*while((bf.readLine())!=null) {
 				   System.out.println(bf.readLine());
-				}
+				}*/
+            comprueba='a';
+    		while(comprueba!='S'&&comprueba!='N') {
+    			System.out.println("\n¿Quieres copiarlo? (S/N)");
+    			comprueba=br.readLine().toUpperCase().charAt(0);
+    		}
+    		//System.out.println("\n");
+    		if(comprueba=='S') {
+    			BufferedReader bfn=new BufferedReader(new FileReader(f));
+    			File fn=new File(ruta+fichero+"_copia.txt");
+    			FileWriter fwn=new FileWriter(fn);
+    			//System.out.println(bfn.read());
+    			valor=bfn.read();
+    			while(valor!=-1){
+    				//System.out.println((char)valor);
+    				fwn.write((char)valor);
+                    valor=bfn.read();
+                }
+    			fwn.close();
+    			bfn.close();
+    		}
 		}
 		bf.close();
 		//System.out.println("ruta="+f+"\ncomprueba="+comprueba+"\nExiste="+existe);

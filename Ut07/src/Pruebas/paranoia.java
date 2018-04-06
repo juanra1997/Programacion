@@ -4,8 +4,8 @@ package Pruebas;
 
 public class paranoia {
 
-	/*public static void main(String[] args) {
-	BufferedReader br=new BufferedReader(new InputStreamReader(System.in));
+	public static void main(String[] args) {
+	/*BufferedReader br=new BufferedReader(new InputStreamReader(System.in));
 	String a;
 	try {
 		a=br.readLine();
@@ -15,4 +15,11 @@ public class paranoia {
 	}
 
 	}*/
+	String a="prueba";
+	System.out.println(a);
+	a=a+".txt";
+	System.out.println(a);
+	//a=a-".txt";
+	System.out.println(a);
+	}
 }
