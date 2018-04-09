@@ -4,5 +4,7 @@
 	<classpathentry kind="src" path="src"/>
 	<classpathentry kind="src" path="Practica03"/>
 	<classpathentry kind="src" path="Expresiones regulares"/>
+	<classpathentry kind="src" path="PracticaT5"/>
+	<classpathentry kind="src" path="Herencias"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>
