@@ -50,13 +50,16 @@ public class Texto04 {
 					FileWriter fw=new FileWriter(f);
 					System.out.println("Escribe");
 					fw.write(br.readLine());
+					/*for(int i=0; i<=50;i=i+2) {
+						fw.write(i);
+					}*/
 					fw.close();
 				}
 				
 			}
 		}
-		BufferedReader bf=new BufferedReader(new FileReader(f));
 		if(existe==true) {
+			BufferedReader bf=new BufferedReader(new FileReader(f));
 			System.out.println("En el archivo pone:");
 			//System.out.println(br.read());
 			int valor=bf.read();
@@ -87,12 +90,12 @@ public class Texto04 {
     			fwn.close();
     			bfn.close();
     		}
+    		bf.close();
 		}
-		bf.close();
 		//System.out.println("ruta="+f+"\ncomprueba="+comprueba+"\nExiste="+existe);
 	} catch (IOException e) {
 		System.out.println("Algo ha ido mal :(");
-		e.printStackTrace();
+		//e.printStackTrace();
 	}
 	}
 }
