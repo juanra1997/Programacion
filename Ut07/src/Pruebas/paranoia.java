@@ -1,4 +1,7 @@
 package Pruebas;
+
+import java.util.ArrayList;
+
 //import java.io.*;
 //import java.util.*;
 
@@ -15,11 +18,17 @@ public class paranoia {
 	}
 
 	}*/
-	String a="prueba";
+	/*String a="prueba";
 	System.out.println(a);
 	a=a+".txt";
 	System.out.println(a);
 	//a=a-".txt";
-	System.out.println(a);
+	System.out.println(a);*/
+	ArrayList<String> array=new ArrayList<String>(10);
+	array.add("Hola");
+	array.add(" Caracola");
+	for(int i=0; i<array.size(); i++) {
+		System.out.print(array.get(i));
+	}
 	}
 }
