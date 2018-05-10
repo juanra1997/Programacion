@@ -45,4 +45,14 @@ public class Inicializar {
 		ventana.getContentPane().setBackground(color);
 		return ventana;
 	}
+	
+	public static JFrame inicializar(JFrame ventana, String Titulo, int alto, int ancho) {
+		//JFrame ventana=new JFrame();
+		ventana.setVisible(true);
+		ventana.setTitle(Titulo);
+		ventana.setSize(alto, ancho);
+		ventana.setLocation(Toolkit.getDefaultToolkit().getScreenSize().height/2, Toolkit.getDefaultToolkit().getScreenSize().width/6);
+		ventana.setDefaultCloseOperation(3);
+		return ventana;
+	}
 }
