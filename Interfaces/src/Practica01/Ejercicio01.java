@@ -1,5 +1,6 @@
 package Practica01;
 
+import java.awt.Color;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import javax.swing.*;
@@ -30,6 +31,7 @@ public class Ejercicio01 extends JFrame implements ActionListener {
 		ventana.setSize(330, 180);
 		ventana.setLocationRelativeTo(null);
 		ventana.setDefaultCloseOperation(3);
+		ventana.setResizable(false);
 		
 		//JLabel unidades=new JLabel();
 		
@@ -40,6 +42,7 @@ public class Ejercicio01 extends JFrame implements ActionListener {
 		//JTextField texto=new JTextField();
 		
 		texto.setBounds(150,10,150,20);
+		texto.setBorder(BorderFactory.createLineBorder(Color.BLACK, 1));
 		ventana.add(texto);
 		
 		//JButton boton=new JButton("ACEPTAR");

@@ -26,6 +26,7 @@ public class Ejercicio02 extends JFrame implements ActionListener {
 		ventana.setSize(330, 180);
 		ventana.setLocationRelativeTo(null);
 		ventana.setDefaultCloseOperation(3);
+		ventana.setResizable(false);
 		
 		//JTextField texto1=new JTextField();
 		
@@ -54,15 +55,13 @@ public class Ejercicio02 extends JFrame implements ActionListener {
 				if(a.endsWith(".0")) {
 					a=a.substring(0, a.length()-2);
 				}
-				/*if(a.contains(",")) {
-					a.replace(",", ".");
-				}*/
+				
 				ventana.setTitle(a);
 			}
 		} catch(Exception x) {
-			System.out.println("Tienen que ser dos numeros y los decimales separados por un punto");
+			ventana.setTitle("ENTRADA NO VALIDA");
+			JOptionPane.showMessageDialog(null, "Tienen que ser dos numeros y los decimales separados por un punto");
 		}
 	}
 
 }
-//HACER QUE SALTE EL AVISO
