@@ -51,45 +51,39 @@ public class Ejercicio08 extends JFrame implements ActionListener {
 
 	@Override
 	public void actionPerformed(ActionEvent e) {
-		try {
-			if(e.getSource()==boton) {
-				
-				if(pulsado==false&&pulsado1==false) {
-					texto.setText("VARON");
-					pulsado=true;
-				}else if(pulsado==false&&pulsado1==true) {
-					texto.setText("MUJER Y VARON");
-					pulsado=true;
-				}else if(pulsado==true&&pulsado1==true) {
-					texto.setText("MUJER");
-					pulsado=false;
-				}else {
-					texto.setText("");
-					pulsado=false;
-				}
-			}
+		
+		if(e.getSource()==boton) {
 			
-			if(e.getSource()==boton1) {
-				
-				if(pulsado1==false&&pulsado==false) {
-					texto.setText("MUJER");
-					pulsado1=true;
-				}else if(pulsado1==false&&pulsado==true) {
-					texto.setText("VARON Y MUJER");
-					pulsado1=true;
-				}else if(pulsado1==true&&pulsado==true) {
-					texto.setText("VARON");
-					pulsado1=false;
-				}else {
-					texto.setText("");
-					pulsado1=false;
-				}
+			if(pulsado==false&&pulsado1==false) {
+				texto.setText("VARON");
+				pulsado=true;
+			}else if(pulsado==false&&pulsado1==true) {
+				texto.setText("MUJER Y VARON");
+				pulsado=true;
+			}else if(pulsado==true&&pulsado1==true) {
+				texto.setText("MUJER");
+				pulsado=false;
+			}else {
+				texto.setText("");
+				pulsado=false;
 			}
-	
-		} catch(Exception x) {
-			ventana.setTitle("ENTRADA NO VALIDA");
-			JOptionPane.showMessageDialog(null, "Tienen que ser dos numeros y los decimales separados por un punto");
+		}
+		
+		if(e.getSource()==boton1) {
+			
+			if(pulsado1==false&&pulsado==false) {
+				texto.setText("MUJER");
+				pulsado1=true;
+			}else if(pulsado1==false&&pulsado==true) {
+				texto.setText("VARON Y MUJER");
+				pulsado1=true;
+			}else if(pulsado1==true&&pulsado==true) {
+				texto.setText("VARON");
+				pulsado1=false;
+			}else {
+				texto.setText("");
+				pulsado1=false;
+			}
 		}
 	}
-
 }
