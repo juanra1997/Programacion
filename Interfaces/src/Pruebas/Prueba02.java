@@ -9,7 +9,7 @@ import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JTextField;
 
-import Practica01.Ejercicio22;
+//import Practica01.Ejercicio22;
 
 public class Prueba02 extends JFrame implements ActionListener{
 

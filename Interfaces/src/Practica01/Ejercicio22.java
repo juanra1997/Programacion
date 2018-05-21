@@ -12,17 +12,17 @@ public class Ejercicio22 extends JFrame implements ActionListener{
 	private static final long serialVersionUID = 1L;
 
 	JButton boton=new JButton("Introducir fecha de nacimiento");
-	/*JButton boton1=new JButton("Aceptar");
-	JButton boton2=new JButton("Cancelar");*/
-	JTextField fecha=new JTextField();
-	JTextField fechal=new JTextField();
-	/*JTextField fecha2=new JTextField();
+	JButton boton1=new JButton("Aceptar");
+	JButton boton2=new JButton("Cancelar");
+	static JTextField fecha=new JTextField();
+	static JTextField fechal=new JTextField();
+	JTextField fecha2=new JTextField();
 	JTextField fecha3=new JTextField();
 	JTextField fecha4=new JTextField();
 	JLabel label=new JLabel();
 	JLabel label1=new JLabel();
 	Font fuente=new Font("TimesRoman", Font.BOLD, 25);
-	JFrame ventana=new JFrame();*/
+	JFrame ventana=new JFrame();
 	
 	public static void main(String[] args) {
 		
@@ -50,6 +50,7 @@ public class Ejercicio22 extends JFrame implements ActionListener{
 		fecha.setEditable(false);
 		fecha.setBorder(BorderFactory.createLineBorder(Color.BLACK, 1));
 		fecha.setText("");
+		fecha.setHorizontalAlignment(JTextField.CENTER);
 		add(fecha);
 		
 		//JTextField fechal=new JTextField();
@@ -57,12 +58,13 @@ public class Ejercicio22 extends JFrame implements ActionListener{
 		fechal.setBounds(100, 140, 290, 20);
 		fechal.setEditable(false);
 		fechal.setBorder(BorderFactory.createLineBorder(Color.BLACK, 1));
+		fechal.setHorizontalAlignment(JTextField.CENTER);
 		add(fechal);
 		
 		setVisible(true);
 	}
 	
-	/*public void miVentana2() {
+	public void miVentana2() {
 		
 		//JFrame ventana=new JFrame();
 		
@@ -114,20 +116,23 @@ public class Ejercicio22 extends JFrame implements ActionListener{
 		ventana.add(label1);
 
 		ventana.setVisible(true);
-	}*/
+	}
 	
 	@Override
 	public void actionPerformed(ActionEvent e) {
 
 		if(e.getSource()==boton) {
-			miVentana2 obj=new miVentana2();
+			Ejercicio22 obj=new Ejercicio22();
 			//obj.setDefaultCloseOperation(HIDE_ON_CLOSE);
-			fecha.setText(obj.getFecha());
-			//obj.miVentana2();
+			//fecha.setText(obj.getFecha());
+			//fecha.setText("prueba");
+			obj.miVentana2();
 		}
 		
-		/*if(e.getSource()==boton1) {
+		if(e.getSource()==boton1) {
 			try {
+				fecha.setText(" ");
+				fechal.setText(" ");
 				if(Integer.parseInt(fecha3.getText())==2&&(Integer.parseInt(fecha4.getText())%400==0||Integer.parseInt(fecha4.getText())%4==0&&Integer.parseInt(fecha4.getText())%100!=0)&&(Integer.parseInt(fecha2.getText())>29||Integer.parseInt(fecha2.getText())<0)) {
 					JOptionPane.showMessageDialog(null, "Introduce una fecha valida");
 				}else if(Integer.parseInt(fecha3.getText())==2&&!(Integer.parseInt(fecha4.getText())%400==0||Integer.parseInt(fecha4.getText())%4==0&&Integer.parseInt(fecha4.getText())%100!=0)&&(Integer.parseInt(fecha2.getText())>28||Integer.parseInt(fecha2.getText())<0)) {
@@ -143,10 +148,49 @@ public class Ejercicio22 extends JFrame implements ActionListener{
 				}else if(Integer.parseInt(fecha3.getText())>8&&Integer.parseInt(fecha3.getText())%2!=0&&Integer.parseInt(fecha2.getText())>30) {
 					JOptionPane.showMessageDialog(null, "Introduce una fecha valida");
 				}else {
-					fecha.setText("prueba");
+					fecha.setText(fecha2.getText()+"/"+fecha3.getText()+"/"+fecha4.getText());
 					ventana.setVisible(false);
+					switch(Integer.parseInt(fecha3.getText())) {
+					case 1:
+						fechal.setText(fecha2.getText()+" de Enero de "+fecha4.getText());
+						break;
+					case 2:
+						fechal.setText(fecha2.getText()+" de Febrero de "+fecha4.getText());
+						break;
+					case 3:
+						fechal.setText(fecha2.getText()+" de Marzo de "+fecha4.getText());
+						break;
+					case 4:
+						fechal.setText(fecha2.getText()+" de Abril de "+fecha4.getText());
+						break;
+					case 5:
+						fechal.setText(fecha2.getText()+" de Mayo de "+fecha4.getText());
+						break;
+					case 6:
+						fechal.setText(fecha2.getText()+" de Junio de "+fecha4.getText());
+						break;
+					case 7:
+						fechal.setText(fecha2.getText()+" de Julio de "+fecha4.getText());
+						break;
+					case 8:
+						fechal.setText(fecha2.getText()+" de Agosto de "+fecha4.getText());
+						break;
+					case 9:
+						fechal.setText(fecha2.getText()+" de Septiembre de "+fecha4.getText());
+						break;
+					case 10:
+						fechal.setText(fecha2.getText()+" de Octubre de "+fecha4.getText());
+						break;
+					case 11:
+						fechal.setText(fecha2.getText()+" de Noviembre de "+fecha4.getText());
+						break;
+					case 12:
+						fechal.setText(fecha2.getText()+" de Diciembre de "+fecha4.getText());
+						break;
+					}
 				}
-			}catch(Exception x) {
+				
+				}catch(Exception x) {
 				JOptionPane.showMessageDialog(null, "No es una entrada valida");
 			}
 		}
@@ -155,12 +199,12 @@ public class Ejercicio22 extends JFrame implements ActionListener{
 			fecha2.setText("");
 			fecha3.setText("");
 			fecha4.setText("");
-		}*/
+		}
 	}
 
 }
 
-class miVentana2 extends JFrame implements ActionListener {
+/*class miVentana2 extends JFrame implements ActionListener {
 
 	private static final long serialVersionUID = 1L;
 	
@@ -252,6 +296,7 @@ class miVentana2 extends JFrame implements ActionListener {
 					JOptionPane.showMessageDialog(null, "Introduce una fecha valida");
 				}else {
 					this.fecha=fecha2.getText()+"/"+fecha3.getText()+"/"+fecha4.getText();
+					System.out.println(fecha);
 					setVisible(false);
 					
 				}
@@ -267,4 +312,4 @@ class miVentana2 extends JFrame implements ActionListener {
 		}
 	}
 	
-}
+}*/
