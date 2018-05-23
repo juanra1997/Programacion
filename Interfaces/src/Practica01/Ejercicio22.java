@@ -149,7 +149,7 @@ public class Ejercicio22 extends JFrame implements ActionListener{
 					JOptionPane.showMessageDialog(null, "Introduce una fecha valida");
 				}else {
 					fecha.setText(fecha2.getText()+"/"+fecha3.getText()+"/"+fecha4.getText());
-					ventana.setVisible(false);
+					ventana.dispose();
 					switch(Integer.parseInt(fecha3.getText())) {
 					case 1:
 						fechal.setText(fecha2.getText()+" de Enero de "+fecha4.getText());
