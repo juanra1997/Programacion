@@ -1,116 +1,150 @@
 package Ficheros_Binarios;
 
  import java.util.*;
- import java.io.*;
+
+import java.io.*;
  
 public class PrincipalAlumnos implements Serializable{
 
-	/**
-	 * 
-	 */
 	private static final long serialVersionUID = 1L;
+	static File f=new File("Alumnos.bin");
+	//static ArrayList<Alumno> arr=new ArrayList<Alumno>();
 
 	public static void main(String[] args) {
-		try {
-			Scanner sc=new Scanner(System.in);
-			String ruta;
-			int cont, resps;
-			char resp='a';
-			System.out.println("Introduce la ruta en la que leer el archivo");
-			ruta=sc.nextLine();
-			File archivo=new File(ruta+"\\Alumnos");
-			if(!archivo.exists()) {
-				while(resp!='S'&&resp!='N') {
-					System.out.println("El archivo no existe ¿Quieres crearlo? (S/N)");
-					resp=sc.next().toUpperCase().charAt(0);
-				}
-				if(resp=='N') {
-					System.out.println("Fin");
-				}else if(resp=='S') {
-					archivo.createNewFile();	
-				}
+		//System.out.println(arr.size());
+		//System.out.println(f.exists());
+		/*if(f.exists()) {
+			f.delete();
+		}*/
+		if(!f.exists()) {
+			try {
+				f.createNewFile();
+			} catch (IOException e) {
+				System.out.println("Algo ha salido mal");
 			}
-			if(archivo.exists()) {
-				FileOutputStream fos=new FileOutputStream(archivo, true);
-				ObjectOutputStream dos=new ObjectOutputStream(fos);
-				FileInputStream fis=new FileInputStream(archivo);
-				//DataInputStream dis=new DataInputStream(fis);
-				ObjectInputStream dis=new ObjectInputStream(fis);
-				System.out.println("¿Que quieres hacer?\n1. Escribir en el archivo\n2. Leer el archivo\nLos demas numeros salen del programa");
-				resps=sc.nextInt();
-				while(resps==2||resps==1) {
-					switch(resps){
-						case 1:
-							System.out.println("¿Cuantos alumnos quieres escribir?");
-							cont=sc.nextInt();
-							for(int i=0; i<cont; i++) {
-								System.out.println("Alumno "+(i+1));
-								IntroducirDatos(dos);
-							}
-						break;
-						case 2:
-							//BufferedReader br=new BufferedReader(new FileReader(archivo));
-							LeerDatos(dis);
-						break;
-							}
-					System.out.println("¿Que quieres hacer?\n1. Escribir en el archivo\n2. Leer el archivo\nLos demas numeros salen del programa");
-					resps=sc.nextInt();
-				}
-				fis.close();
-				sc.close();
-			}
-		} catch (IOException e) {
-			System.out.println("Algo ha salido mal :(");
-			e.printStackTrace();
 		}
+		PrincipalAlumnos obj=new PrincipalAlumnos();
+		obj.menu();
 	}
-	public static void IntroducirDatos(ObjectOutputStream archivo) {
-		/*String nombre, direccion;
-		int edad;
-		double nota;*/
-		Scanner sc;
-		sc=new Scanner(System.in);
-		/*System.out.println("Introduce el nombre del alumno");
-		nombre=sc.nextLine();
-		System.out.println("Introduce la dirección del alumno");
-		direccion=sc.nextLine();
-		System.out.println("Introduce la edad del alumno");
-		edad=sc.nextInt();
-		System.out.println("Introduce la nota media del alumno");
-		nota=sc.nextDouble();*/
-		try {
-			System.out.println("Introduce el nombre del alumno");
-			archivo.writeObject(sc.nextLine());
-			System.out.println("Introduce la dirección del alumno");
-			archivo.writeObject(sc.nextLine());
-			System.out.println("Introduce la edad del alumno");
-			archivo.writeObject(sc.nextInt());
-			System.out.println("Introduce la nota media del alumno");
-			archivo.writeObject(sc.nextDouble());
+
+
+	/*public static void introducirDatos(Alumno alumn) {
+		
+		try(ObjectOutputStream fs = new ObjectOutputStream(new FileOutputStream(f, true))){
+			fs.writeObject(alumn);
+		} catch (FileNotFoundException e) {
+			System.out.println("ERROR: Archivo no encontrado");
 		} catch (IOException e) {
-			System.out.println("Algo ha salido mal :(");
-			e.printStackTrace();
+			System.out.println("ERROR: Problema en la escritura");
 		}
-		sc.close();
-	}
+	}*/
 	
-	public static void LeerDatos(ObjectInputStream archivo) {
-		try {
-			/*System.out.println(archivo.readUTF());
-			System.out.println(archivo.readUTF());
-			System.out.println(archivo.readInt());
-			System.out.println(archivo.readDouble());*/
-			Object lec;
-			lec=archivo.read();
-			String l=lec.toString();
-			for(int i=0; i<l.length(); i++) {
-				System.out.print(lec);
-				lec=archivo.read();
-			}
-		} catch (IOException e) {
-			System.out.println("Algo ha salido mal :(");
-			//e.printStackTrace();
+	public static void leerDatos() {
+
+		try(ObjectInputStream fs = new ObjectInputStream(new FileInputStream(f))){
+			
+			Alumno leido=new Alumno();
+			leido=(Alumno) fs.readObject();
+			do {
+				System.out.println("***********************************");
+				System.out.println(leido.toString());
+				leido= (Alumno) fs.readObject();
+			}while(true);
+		} catch (EOFException eof){
+			System.out.println("***********************************");
+			System.out.println("Fin lectura.");
+			System.out.println("***********************************");
+		} catch (ClassNotFoundException e) {
+			System.out.println("ERROR: Problema al leer objeto");
+		} catch (FileNotFoundException e1) {
+			System.out.println("ERROR: Archivo no encontrado");
+		} catch (IOException e1) {
+			System.out.println("ERROR: Problema en la lectura");
+			//e1.printStackTrace();
 		}
 		
+	}
+
+	public void menu() {
+		BufferedReader br=new BufferedReader(new InputStreamReader(System.in));
+		int s=0;
+		Scanner sc=new Scanner(System.in);
+		int op=0;
+		while(s==0) {
+			System.out.println("Menú\n1. Escribir el archivo\n2. Leer el archivo\n3. Salir del programa");
+			try {
+				op=sc.nextInt();
+			}catch(InputMismatchException e) {
+				System.out.println("***********************************\nNo has introducido un numero\n***********************************");
+				PrincipalAlumnos obj=new PrincipalAlumnos();
+				obj.menu();
+			}
+			switch(op) {
+			case 1:
+				int i=0, cont=0, edad=0;
+				String nom=null, dir=null;
+				double nota;
+				System.out.println("¿Cuantos alumnos quieres introducir?");
+				try {
+					i=sc.nextInt();
+				}catch(InputMismatchException e) {
+					System.out.println("***********************************\nNo has introducido un numero\n***********************************");
+					PrincipalAlumnos obj=new PrincipalAlumnos();
+					obj.menu();
+				}
+				try(ObjectOutputStream fs = new ObjectOutputStream(new FileOutputStream(f))){
+				while(cont<i) {
+					if(i!=1) {
+						System.out.println("Alumno "+(cont+1));
+					}
+					System.out.println("Introduce el nombre");
+					try {
+						nom=br.readLine();
+					} catch (IOException e) {
+						System.out.println("Algo ha salido mal");
+					}
+					//System.out.println(nom);
+					System.out.println("Introduce la direccion");
+					try {
+						dir=br.readLine();
+					}catch (IOException e) {
+						System.out.println("Algo ha salido mal");
+					}
+					//System.out.println(dir);
+					System.out.println("Introduce la edad");
+					edad=sc.nextInt();
+					//System.out.println(edad);
+					System.out.println("Introduce la nota media");
+					nota=sc.nextDouble();
+					if(nota<0||nota>10) {
+						nota=0;
+					}
+					//System.out.println(nota);
+					cont++;
+					fs.writeObject(new Alumno(nom, dir, edad, nota));;
+				}
+				} catch (FileNotFoundException e) {
+					System.out.println("ERROR: Archivo no encontrado");
+				} catch (IOException e) {
+					System.out.println("ERROR: Problema en la escritura");
+				}
+				break;
+			case 2:
+				leerDatos();
+				break;
+			case 3:
+				s=1;
+				break;
+			default:
+				System.out.print("***********************************\nNo es una opción\n***********************************\n");
+				break;
+			}
+		}
+		sc.close();
+		try {
+			br.close();
+		} catch (IOException e) {
+			System.out.println("Algo ha salido mal");
+		}
 	}
 }

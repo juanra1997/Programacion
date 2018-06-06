@@ -2,10 +2,12 @@ package Pruebas;
 
 public class Prueba {
 
-	static String s;
+	public static void main(String[] args0) {
+	System.out.println((int)3.9);
+	/*static String s;
 	static class Interna2{
 		void metodo() {
 			s="Estoy dentro";
-		}
+		}*/
 	}
 }

@@ -27,6 +27,8 @@ public class Ejercicio20 extends JFrame implements ActionListener {
 	JButton calculo=new JButton("TOTAL");
 	JTextField field=new JTextField();
 	JButton limpiar=new JButton("LIMPIAR");
+	JLabel label2=new JLabel("Total con IVA:");
+	JTextField field2=new JTextField();
 
 	public static void main(String[] args){
 
@@ -109,13 +111,13 @@ public class Ejercicio20 extends JFrame implements ActionListener {
 		
 		//JButton calculo=new JButton("TOTAL");
 		
-		calculo.setBounds(180, 200, 100, 50);
+		calculo.setBounds(30, 200, 100, 50);
 		calculo.addActionListener(this);
 		add(calculo);
 		
 		//JTextField field=new JTextField();
 		
-		field.setBounds(302, 200, 100, 50);
+		field.setBounds(152, 200, 100, 50);
 		field.setEditable(false);
 		field.setBorder(BorderFactory.createLineBorder(Color.BLACK));
 		field.setBackground(Color.WHITE);
@@ -136,6 +138,22 @@ public class Ejercicio20 extends JFrame implements ActionListener {
 		limpiar.addActionListener(this);
 		add(limpiar);
 		
+		//JLabel label2=new JLabel("Total con IVA:");
+		
+		label2.setBounds(270, 215, 150, 20);
+		add(label2);
+		
+		//JTextField field2=new JTextField();
+		
+		field2.setBounds(357, 200, 100, 50);
+		field2.setEditable(false);
+		field2.setBorder(BorderFactory.createLineBorder(Color.BLACK));
+		field2.setBackground(Color.WHITE);
+		field2.setFont(new Font("TimesRoman", Font.BOLD, 25));
+		field2.setHorizontalAlignment(JTextField.CENTER);
+		//field2.setText("200");
+		add(field2);
+		
 		setVisible(true);
 	}
 	
@@ -149,13 +167,19 @@ public class Ejercicio20 extends JFrame implements ActionListener {
 		
 		if(e.getSource()==calculo) {
 			if(peque.isSelected()) {
-				field.setText(String.valueOf(8+(cont*0.5))+"€");
+				double a=8+(cont*0.5), b=a*0.21;
+				field.setText(String.valueOf(a)+"€");
+				field2.setText(String.valueOf(a+b)+"€");
 				setTitle("");
 			}else if(mediana.isSelected()) {
-				field.setText(String.valueOf(10+(cont*0.5))+"€");
+				double a=10+(cont*0.5), b=a*0.21;
+				field.setText(String.valueOf(a)+"€");
+				field2.setText(String.valueOf(a+b)+"€");
 				setTitle("");
 			}else if(familiar.isSelected()) {
-				field.setText(String.valueOf(12+(cont*0.5))+"€");
+				double a=12+(cont*0.5), b=a*0.21;
+				field.setText(String.valueOf(a)+"€");
+				field2.setText(String.valueOf(a+b)+"€");
 				setTitle("");
 			}else {
 				setTitle("No hay tamaño de pizza seleccionado");
