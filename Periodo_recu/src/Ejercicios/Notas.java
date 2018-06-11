@@ -57,6 +57,6 @@ public class Notas implements Serializable{
 	}
 	
 	public String toString() {
-		return "Alumno: "+this.nombre+"\nNota1: "+this.nota1+"\nNota2: "+this.nota2+"\nNota3: "+this.nota3;
+		return "Alumno: "+this.nombre+"\nNota1: "+this.nota1+"\nNota2: "+this.nota2+"\nNota3: "+this.nota3+"\n*******************************************************";
 	}
 }

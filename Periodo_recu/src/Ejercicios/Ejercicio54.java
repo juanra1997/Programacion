@@ -4,6 +4,14 @@ import java.io.*;
 import java.util.*;
 
 public class Ejercicio54 {
+	
+	private static ObjectInputStream fs;
+
+	//static File f=new File("notas.dat");
+	
+	/*public static void borrarFichero() {
+		f.delete();
+	}*/
 
 	public static void main(String[] args) {
 
@@ -86,25 +94,28 @@ public class Ejercicio54 {
 						sc=new Scanner(System.in);	
 						System.out.println("Introduce el nombre del alumno "+(i+1));
 						nom=sc.nextLine();
-						try(ObjectInputStream fs = new ObjectInputStream(new FileInputStream(f))){
-							
-							Notas leido=new Notas();
-							leido=(Notas) fs.readObject();
-							do {
-								System.out.println(leido.getNombre());
-								System.out.println(!leido.getNombre().equals(nom));
-								if(!leido.getNombre().equals(nom)) {
-									if(f2.length()==0) {
-										try(ObjectOutputStream fs2 = new ObjectOutputStream(new FileOutputStream(f2, true))){
-											fs2.writeObject(leido);
-										} catch (FileNotFoundException e) {
-											System.out.println("ERROR: Archivo no encontrado");
-										} catch (IOException e) {
+						//if(f2.length()!=0) {
+							try{
+								fs = new ObjectInputStream(new FileInputStream(f));
+								Notas leido=new Notas();
+								leido=(Notas) fs.readObject();
+								do {
+									System.out.println(leido.getNombre());
+									System.out.println(!leido.getNombre().equals(nom));
+									if(!leido.getNombre().equals(nom)) {
+										if(f2.length()==0) {
+											try(ObjectOutputStream fs2 = new ObjectOutputStream(new FileOutputStream(f2, true))){
+												fs2.writeObject(leido);
+												fs2.close();
+											} catch (FileNotFoundException e) {
+												System.out.println("ERROR: Archivo no encontrado");
+											} catch (IOException e) {
 											System.out.println("ERROR: Problema en la escritura");
-										}
+											}
 									}else {
 										try(MiObjectOutputStream fs2 = new MiObjectOutputStream(new FileOutputStream(f2, true))){
 											fs2.writeObject(leido);
+											fs2.close();
 										} catch (FileNotFoundException e) {
 											System.out.println("ERROR: Archivo no encontrado");
 										} catch (IOException e) {
@@ -116,6 +127,11 @@ public class Ejercicio54 {
 								leido= (Notas) fs.readObject();
 							}while(true);
 						} catch (EOFException eof){
+							try {
+								fs.close();
+							} catch (IOException e) {
+	
+							}
 							//System.out.println("Fin lectura.");
 						} catch (ClassNotFoundException e) {
 							System.out.println("ERROR: Problema al leer objeto");
@@ -125,7 +141,8 @@ public class Ejercicio54 {
 							System.out.println("ERROR: Problema en la lectura");
 						}
 					}
-					//f2.renameTo(f);
+					f.delete();
+					f2.renameTo(f);
 				}else{
 					System.out.println("No se han introducido alumnos");
 				}
@@ -136,23 +153,36 @@ public class Ejercicio54 {
 				break;
 			case 4:
 				if(f.length()!=0) {
-					int med=1;
-					try(ObjectInputStream fs = new ObjectInputStream(new FileInputStream(f))){
+					double med=1;
+					try{
+						fs = new ObjectInputStream(new FileInputStream(f));
 						Notas leido=new Notas();
 						leido=(Notas) fs.readObject();
+						System.out.println("*******************************************************");
 						do {
+							//System.out.println(leido.getNota1()*0.2+leido.getNota2()*0.35+leido.getNota3()*0.45);
 							if(leido.getNota1()*0.2+leido.getNota2()*0.35+leido.getNota3()*0.45<=1) {
+								//System.out.println(leido.getNota1()*0.2+leido.getNota2()*0.35+leido.getNota3()*0.45);
 								med=1;
 							}else if(leido.getNota1()*0.2+leido.getNota2()*0.35+leido.getNota3()*0.45<5&&leido.getNota1()*0.2+leido.getNota2()*0.35+leido.getNota3()*0.45>4) {
+								//System.out.println(leido.getNota1()*0.2+leido.getNota2()*0.35+leido.getNota3()*0.45);
 								med=4;
 							}else if(leido.getNota1()*0.2+leido.getNota2()*0.35+leido.getNota3()*0.45>(int)(leido.getNota1()*0.2+leido.getNota2()*0.35+leido.getNota3()*0.45)+0.5) {
+								//System.out.println(leido.getNota1()*0.2+leido.getNota2()*0.35+leido.getNota3()*0.45);
 								med=(int)(leido.getNota1()*0.2+leido.getNota2()*0.35+leido.getNota3()*0.45)+1;
+							}else {
+								med=leido.getNota1()*0.2+leido.getNota2()*0.35+leido.getNota3()*0.45;
 							}
-							System.out.println(leido.toString()+"\nNota media: "+med);
+							System.out.println(leido.toString()+"\nNota media: "+med+"\n*******************************************************");
 							leido= (Notas) fs.readObject();
 						}while(true);
 					} catch (EOFException eof){
-						System.out.println("Fin alumnos.");
+						try {
+							fs.close();
+						} catch (IOException e) {
+
+						}
+						System.out.println("*******************************************************\nFin alumnos.\n*******************************************************\n*******************************************************");
 					} catch (ClassNotFoundException e) {
 						System.out.println("ERROR: Problema al leer objeto");
 					} catch (FileNotFoundException e1) {
@@ -168,37 +198,22 @@ public class Ejercicio54 {
 				c=0;
 				break;
 			case 5:
-				try(ObjectInputStream fs = new ObjectInputStream(new FileInputStream(f))){
-					
+				System.out.println("*******************************************************");
+				try {
+				fs = new ObjectInputStream(new FileInputStream(f));
+				
 					Notas leido=new Notas();
 					leido=(Notas) fs.readObject();
 					do {
-						System.out.println(leido.toString()+"\n");
+						System.out.println(leido.toString());
 						leido= (Notas) fs.readObject();
 					}while(true);
 				} catch (EOFException eof){
-					System.out.println("Fin lectura.");
-				} catch (ClassNotFoundException e) {
-					System.out.println("ERROR: Problema al leer objeto");
-				} catch (FileNotFoundException e1) {
-					System.out.println("ERROR: Archivo no encontrado");
-				} catch (IOException e1) {
-					System.out.println("ERROR: Problema en la lectura");
-					//e1.printStackTrace();
-				}
-				break;
-			case 7:
-				System.out.println(f.length());
-try(ObjectInputStream fs = new ObjectInputStream(new FileInputStream("borrar.dat"))){
-					
-					Notas leido=new Notas();
-					leido=(Notas) fs.readObject();
-					do {
-						System.out.println(leido.toString()+"\n");
-						leido= (Notas) fs.readObject();
-					}while(true);
-				} catch (EOFException eof){
-					System.out.println("Fin lectura.");
+					try {
+						fs.close();
+					} catch (IOException e) {
+					}
+					System.out.println("Fin lectura.\n*******************************************************");
 				} catch (ClassNotFoundException e) {
 					System.out.println("ERROR: Problema al leer objeto");
 				} catch (FileNotFoundException e1) {
