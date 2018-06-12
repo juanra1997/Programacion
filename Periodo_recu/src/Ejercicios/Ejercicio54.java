@@ -7,12 +7,6 @@ public class Ejercicio54 {
 	
 	private static ObjectInputStream fs;
 
-	//static File f=new File("notas.dat");
-	
-	/*public static void borrarFichero() {
-		f.delete();
-	}*/
-
 	public static void main(String[] args) {
 
 		File f=new File("notas.dat");
@@ -28,7 +22,7 @@ public class Ejercicio54 {
 		String nom;
 		int c=1,op;
 		while(c==1) {
-			System.out.println("Menu\n1. Introducir alumnos\n2. Borrar alumnos\n3. Borrar fichero y salir\n4. Calcular notas medias\n5. Listar alumnos\n6. Salir del programa");
+			System.out.println("Menu\n1. Introducir alumnos\n2. Borrar alumnos\n3. Borrar fichero y salir\n4. Calcular notas medias\n5. Listar alumnos\n6. Salir del programa\nElige una opcion");
 			try {
 				op=sc.nextInt();
 			} catch(InputMismatchException ime){
