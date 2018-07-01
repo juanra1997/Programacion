@@ -6,6 +6,7 @@ public class Prueba2 {
 		// TODO Auto-generated method stub
 		Tragaperras prueba=new Tragaperras(1);
 		prueba.apuesta();
+		//Hola
 	}
 
 }
