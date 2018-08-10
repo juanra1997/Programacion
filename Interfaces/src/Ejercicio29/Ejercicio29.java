@@ -41,6 +41,7 @@ public class Ejercicio29 extends JFrame implements ActionListener {
 	JTextField rinif=new JTextField();
 	JButton recuperar=new JButton("Recuperar");
 	JButton rlimpiar=new JButton("Limpiar");
+	
 	JButton borrar=new JButton("Borrar archivo");
 	
 	public static void main(String[] args) {
