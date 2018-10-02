@@ -55,7 +55,12 @@ public class Ejercicio09 extends JFrame implements ActionListener {
 		boton3.addActionListener(this);
 		ventana.add(boton3);
 		
+		//Color de ventana
+		
+		ventana.getContentPane().setBackground(Color.WHITE);
+		
 		ventana.setVisible(true);
+	
 	}
 
 	@Override
